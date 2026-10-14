@@ -118,7 +118,7 @@ function setPhoto(photo) {
 
 // API parameters
 const collection = 1053828;
-const url = 'https://chronometer-api.deno.dev/photos/random?';
+const url = 'https://chronometer-api.pierrebeur0.workers.dev/photos/random?';
 
 function fetchPhoto() {
   const params = new URLSearchParams([
