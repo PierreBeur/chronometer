@@ -1,15 +1,15 @@
-# Simple workflow for checking and deploying static content to GitHub Pages
-name: Check and deploy static content to Pages
+# Simple workflow for checking, building, and deploying static content to GitHub Pages
+name: Check, build, and deploy static content to Pages
 
 on:
-  # Runs checks on pushes to any branch and on pull requests
+  # Runs checks and builds on pushes to any branch and on pull requests
   push:
   pull_request:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets read-only permissions of the GITHUB_TOKEN for checks
+# Sets read-only permissions of the GITHUB_TOKEN for checks and builds
 permissions:
   contents: read
 
@@ -29,9 +29,30 @@ jobs:
       - name: Check formatting
         run: pnpm format:check
 
-  # Deploy only from the default branch after checks pass
+  # Build independently of checks, uploading a Pages artifact only from main
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up pnpm, Node.js, and dependencies
+        uses: pnpm/setup@v3
+        with:
+          cache: true
+          require-lockfile: true
+      - name: Build
+        run: pnpm build
+      - name: Upload artifact
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: actions/upload-pages-artifact@v5
+        with:
+          # Upload the built site
+          path: "./dist"
+
+  # Deploy only from the default branch after checks and build pass
   deploy:
-    needs: checks
+    needs: [checks, build]
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
@@ -52,15 +73,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
       - name: Setup Pages
         uses: actions/configure-pages@v6
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          # Upload entire repository
-          path: "."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
