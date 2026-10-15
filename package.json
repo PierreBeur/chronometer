@@ -6,6 +6,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "prettier": {},
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -14,5 +19,8 @@
     }
   },
   "packageManager": "pnpm@12.11.2",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^3.9.10"
+  }
 }
