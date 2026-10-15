@@ -6,7 +6,12 @@ Highly customizable date and time display with background images
 
 ## Formatting
 
-Use pnpm, with the version specified in `package.json`. Prettier uses its defaults,
+Use pnpm, with the version specified in `package.json`. `devEngines.runtime` declares
+Node.js 24 for project tools. Run `pnpm install` to install dependencies and resolve
+the managed runtime, and commit the resulting lockfile changes. Run project tools
+through pnpm; `pnpm exec node --version` reports the project runtime.
+
+Prettier uses its defaults,
 configured by the `"prettier": {}` field in `package.json`.
 
 After installing dependencies with `pnpm install`, run:

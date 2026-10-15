@@ -12,6 +12,11 @@
   },
   "prettier": {},
   "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.22.0",
+      "onFail": "download"
+    },
     "packageManager": {
       "name": "pnpm",
       "version": "12.11.2",
