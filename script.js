@@ -80,10 +80,6 @@ function setBrightness(brightness) {
   photoViewContainer.style.setProperty("--brightness", brightness);
 }
 
-function setTransitionDuration(transitionDuration) {
-  photoViewContainer.style.setProperty("--transition-duration", transitionDuration + "ms");
-}
-
 // Photo attribution
 const utm = "?utm_source=Chronometer&utm_medium=referral&utm_campaign=api-credit";
 const attributionPhoto = document.querySelector("#attribution-photo");
