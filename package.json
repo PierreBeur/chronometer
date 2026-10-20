@@ -14,14 +14,18 @@
     "format": "oxfmt",
     "format:check": "oxfmt --check",
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
+    "lint:fix": "oxlint --fix",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "idb": "^8.0.4"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "oxfmt": "^0.73.0",
     "oxlint": "^1.88.0",
+    "oxlint-tsgolint": "^7.0.2004",
+    "typescript": "^7.0.2",
     "vite": "^8.3.4"
   },
   "devEngines": {
