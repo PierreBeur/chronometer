@@ -33,6 +33,10 @@ that setting if the site moves to a custom domain or a different repository path
 `idb` is installed through pnpm and bundled by Vite. Photo history uses the
 existing `chronometer-photo-history` IndexedDB database and schema version 1.
 
+Application code lives in `src/`: `main.ts` is the entry point, `style.css` holds
+the styles, and `assets/` contains the SVG and icons. `index.html` stays at the
+repository root and references these files for Vite to process.
+
 ## Type checking
 
 The application uses TypeScript with strict checking, including checks for missing
