@@ -1,3 +1,5 @@
+import { openDB } from "idb";
+
 // Time
 const time = document.querySelector("#time");
 function updateTime() {
@@ -33,7 +35,7 @@ const ls = {
   },
 };
 
-const dbp = idb.openDB("chronometer-photo-history", 1, {
+const dbp = openDB("chronometer-photo-history", 1, {
   upgrade(db) {
     db.createObjectStore("photo-history", {
       keyPath: "id",

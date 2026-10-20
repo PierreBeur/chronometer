@@ -28,6 +28,9 @@
   },
   "packageManager": "pnpm@12.11.2",
   "type": "module",
+  "dependencies": {
+    "idb": "^8.0.4"
+  },
   "devDependencies": {
     "prettier": "^3.9.10",
     "vite": "^8.3.4"
