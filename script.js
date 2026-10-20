@@ -81,15 +81,11 @@ function setBrightness(brightness) {
 }
 
 function setTransitionDuration(transitionDuration) {
-  photoViewContainer.style.setProperty(
-    "--transition-duration",
-    transitionDuration + "ms",
-  );
+  photoViewContainer.style.setProperty("--transition-duration", transitionDuration + "ms");
 }
 
 // Photo attribution
-const utm =
-  "?utm_source=Chronometer&utm_medium=referral&utm_campaign=api-credit";
+const utm = "?utm_source=Chronometer&utm_medium=referral&utm_campaign=api-credit";
 const attributionPhoto = document.querySelector("#attribution-photo");
 const attributionUser = document.querySelector("#attribution-user");
 const attributionUnsplash = document.querySelector("#attribution-unsplash");
@@ -102,19 +98,12 @@ function setAttribution(attribution) {
 
 // Photo location
 const photoLocation = document.querySelector("#photo-location");
-const photoLocationPosition = document.querySelector(
-  "#photo-location-position",
-);
+const photoLocationPosition = document.querySelector("#photo-location-position");
 function setPhotoLocation(locationData) {
   const name = locationData.name;
   photoLocation.textContent = name;
-  photoLocation.href = name
-    ? "https://www.google.com/search?q=" + encodeURIComponent(name)
-    : "";
-  const [latitude, longitude] = [
-    locationData.position.latitude,
-    locationData.position.longitude,
-  ];
+  photoLocation.href = name ? "https://www.google.com/search?q=" + encodeURIComponent(name) : "";
+  const [latitude, longitude] = [locationData.position.latitude, locationData.position.longitude];
   const validPosition = latitude && longitude;
   photoLocationPosition.href = validPosition
     ? `https://www.google.com/maps/place/${latitude}%2C${longitude}`

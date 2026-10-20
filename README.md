@@ -35,8 +35,9 @@ existing `chronometer-photo-history` IndexedDB database and schema version 1.
 
 ## Formatting
 
-Prettier uses its defaults, configured by the `"prettier": {}` field in
-`package.json`.
+Oxfmt uses its defaults, configured by `.oxfmtrc.json`. This includes a print width
+of 100 and automatic `package.json` field sorting. The configuration's local JSON
+schema provides editor validation, completion, and hover documentation.
 
 After installing dependencies with `pnpm install`, run:
 
@@ -46,8 +47,11 @@ pnpm format:check
 ```
 
 `format` rewrites supported files; `format:check` checks formatting without changing
-files. `.prettierignore` excludes the generated pnpm lockfile. Configure your editor
-to use the project's installed Prettier for format-on-save.
+files. `ignorePatterns` in `.oxfmtrc.json` excludes the generated pnpm lockfile;
+Oxfmt also respects `.gitignore`, including `dist/` and `node_modules/`. For VS Code,
+use the Oxc extension and select Oxfmt as the formatter for supported languages.
+See [Oxfmt's editor setup guide](https://oxc.rs/docs/guide/usage/formatter/editors.html)
+for format-on-save configuration.
 
 ## Deployment
 

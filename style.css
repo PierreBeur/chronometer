@@ -164,8 +164,7 @@ body {
 }
 
 .photo-view.transition {
-  transition: opacity var(--transition-duration)
-    cubic-bezier(0.28, 0.83, 0.67, 1);
+  transition: opacity var(--transition-duration) cubic-bezier(0.28, 0.83, 0.67, 1);
 }
 
 .photo-view.active {
